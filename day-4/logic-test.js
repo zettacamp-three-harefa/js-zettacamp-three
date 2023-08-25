@@ -12,6 +12,9 @@ console.log(hasUniqueCharacters("hello")); // Output: false
 
 function hasUniqueCharacters(str) {
     // Your logic here
+    if (typeof str !== "string") {
+        return `invalid input! your input is a ${typeof str}`
+    }
 
     const input = str.toLowerCase();
 
@@ -20,8 +23,6 @@ function hasUniqueCharacters(str) {
             if (input[i] === input[j]) {
                 return false;
             }
-            // console.log('input i',input[i]);
-            // console.log('input j',input[j]);
         }
     }
 
@@ -29,3 +30,7 @@ function hasUniqueCharacters(str) {
 }
 
 console.log(hasUniqueCharacters('abcde'));
+console.log(hasUniqueCharacters('abcded'));
+console.log(hasUniqueCharacters('jklmn2'));
+console.log(hasUniqueCharacters('12345'));
+console.log(hasUniqueCharacters(12345));
