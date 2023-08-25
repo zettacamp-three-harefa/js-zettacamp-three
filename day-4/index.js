@@ -37,41 +37,39 @@
 
 function PurchasingBook(detailBook, discount, tax, stock, purchasedBook) {
 
-    // for (let i = 1; i <= stock; i++) {
-    //     if (stock < purchasedBook) {
-    //         console.log('book out of stock');
-    //         break;
-    //     } else {
-    //         const sisaStock = stock - purchasedBook;
-    //         if (sisaStock < 1) {
-    //             return `You cannot buy this book again. Remaining stock ${sisaStock}`;
-    //         } else if (!detailBook) {
-    //             return 'Please enter the book';
-    //         } else if (!discount && !tax) {
-    //             return 'Please enter a discount amount and a tax amount';
-    //         } else {
-    //             const amountDiscount = (discount / 100) * detailBook.price;
-    //             const priceAfterDiscount = (detailBook.price * purchasedBook) - (detailBook.price * (discount / 100));
-    //             const amountOfTask = priceAfterDiscount * (tax / 100);
-    //             const priceAfterTax = priceAfterDiscount + (priceAfterDiscount * (tax / 100));
-    //             const remainingStock = `You can buy this book again. Remaining stock ${sisaStock}`;
+    for (let i = 1; i <= stock; i++) {
+        if (stock < purchasedBook) {
+            console.log('book out of stock');
+            break;
+        } else {
+            const sisaStock = stock - purchasedBook;
+            if (!detailBook) {
+                return 'Please enter the book';
+            } else if (!discount && !tax) {
+                return 'Please enter a discount amount and a tax amount';
+            } else {
+                const amountDiscount = (discount / 100) * detailBook.price;
+                const priceAfterDiscount = (detailBook.price * purchasedBook) - (detailBook.price * (discount / 100));
+                const amountOfTask = priceAfterDiscount * (tax / 100);
+                const priceAfterTax = priceAfterDiscount + (priceAfterDiscount * (tax / 100));
+                const remainingStock = sisaStock < 1 ? `You cannot buy this book again. Remaining stock ${sisaStock}`
+                    : `You can buy this book again. Remaining stock ${sisaStock}`;
 
-    //             return {
-    //                 detailBook,
-    //                 discount,
-    //                 amountDiscount,
-    //                 priceAfterDiscount,
-    //                 tax,
-    //                 amountOfTask,
-    //                 priceAfterTax,
-    //                 stock,
-    //                 purchasedBook,
-    //                 remainingStock,
-    //             }
-    //         }
-    //     }
-    // }
-
+                return {
+                    detailBook,
+                    discount,
+                    amountDiscount,
+                    priceAfterDiscount,
+                    tax,
+                    amountOfTask,
+                    priceAfterTax,
+                    stock,
+                    purchasedBook,
+                    remainingStock,
+                }
+            }
+        }
+    }
 
     // Using while loop 
     // let i = 0;
@@ -166,4 +164,4 @@ const book = {
 //     n++;
 // }
 
-console.log(PurchasingBook(book, 45, 6, 11, 5));
+console.log(PurchasingBook(book, 45, 6, 5, 3));

@@ -31,6 +31,6 @@ function hasUniqueCharacters(str) {
 
 console.log(hasUniqueCharacters('abcde'));
 console.log(hasUniqueCharacters('abcded'));
-console.log(hasUniqueCharacters('jklmn2'));
+console.log(hasUniqueCharacters('HelLo'));
 console.log(hasUniqueCharacters('12345'));
 console.log(hasUniqueCharacters(12345));
