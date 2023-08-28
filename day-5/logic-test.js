@@ -15,14 +15,14 @@ console.log(containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2])); // Output: true
  */
 function containDuplicate(nums) {
     // Your logic here
-    let isContainDuplicate = true;
+    let isContainDuplicate = false;
     for (let i = 0; i < nums.length; i++) {
         for (let j = i + 1; j < nums.length; j++) {
             if (typeof nums[i] && typeof nums[j] !== "number") {
-                return 'Invalid array. Array contains string'
+                return 'Invalid array. Array contains string';
             }
             if (nums[i] === nums[j]) {
-                isContainDuplicate = false;
+                isContainDuplicate = true;
             }
         }
     }
@@ -32,4 +32,5 @@ function containDuplicate(nums) {
 
 console.log(containDuplicate([1, 2, 3, 4]));
 console.log(containDuplicate([1, 2, 3, 1]));
+console.log(containDuplicate([1, 2, 3, '1']));
 console.log(containDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]));

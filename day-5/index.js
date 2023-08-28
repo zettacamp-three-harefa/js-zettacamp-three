@@ -43,6 +43,7 @@ function PurchasingBook(detailBook, discount, tax, stock, purchasedBook, terms) 
                 stock,
                 purchasedBook,
                 canByAgainOrNot,
+                terms,
                 TotalTerms
             }
         }
@@ -57,7 +58,8 @@ function CalcTerms(terms, priceAfterTax) {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const dueDate = new Date();
 
-    const termsAfterTax = priceAfterTax / terms
+    const termsAfterTax = priceAfterTax / terms;
+
     for (let i = 1; i <= terms; i++) {
 
         let future = new Date(dueDate.getFullYear(), dueDate.getMonth() + i);
@@ -67,7 +69,7 @@ function CalcTerms(terms, priceAfterTax) {
 
         const formatDate = `${day} ${month} ${year}`;
 
-        allTerms.push(`${formatDate}: ${termsAfterTax}`)
+        allTerms.push(`${formatDate}: ${termsAfterTax}`);
     }
 
     return allTerms;
@@ -76,10 +78,10 @@ function CalcTerms(terms, priceAfterTax) {
 const book = {
     title: 'Rich dad poor dad',
     description: 'lorem ipsum dolor sit amet, consectetur adip',
-    price: 100000,
+    price: 200000,
     pages: 250,
     author: 'Kiyosaki'
 }
 
 
-console.log(PurchasingBook(book, 45, 6, 5, 3, 5));
+console.log(PurchasingBook(book, 45, 6, 5, 3, 12));
